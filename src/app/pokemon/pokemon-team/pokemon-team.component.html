@@ -1,0 +1,44 @@
+<div *ngIf="myUser; else elseBlock" class="tab">
+  <button mat-raised-button color="primary" (click)="deconnexion()">Se deconnecter</button>
+  <ng-template #elseBlock2>
+  <div >
+    Votre team est vide
+  </div>
+  </ng-template>
+
+    <mat-tab-group  (selectedTabChange)="selectPokemon($event)"  *ngIf="mesPokemonDetail; else elseBlock2">
+      <mat-tab *ngFor=" let pokemon  of mesPokemonDetail" label="{{pokemon.id}} - {{pokemon.name}}">
+        <ng-template mat-tab-label >
+          <img matListAvatar src="../assets/img/sprites/{{pokemon.id}}.png" alt="..." >
+          {{pokemon.id}} - {{pokemon.name}}
+          <button mat-icon-button (click)="supprimerPokemon(pokemon.id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </ng-template>
+
+
+      </mat-tab>
+    </mat-tab-group>
+
+
+</div>
+<ng-template #elseBlock >
+  <div class="login">
+    <h2>Login</h2>
+    <mat-list class="Formulaire">
+      <form >
+        <mat-form-field >
+          <input matInput placeholder="Email" [ngModel]="email" name="email" (ngModelChange)="memoriserEmail($event)">
+        </mat-form-field>
+        <br>
+        <mat-form-field >
+          <input matInput placeholder="Mot de passe" [ngModel]="password" name="password" (ngModelChange)="memoriserPassword($event)">
+        </mat-form-field>
+        <br>
+        <button mat-raised-button color="primary" (click)="onSubmit()">Se connecter</button>
+      </form>
+    </mat-list>
+  </div>
+
+
+</ng-template>

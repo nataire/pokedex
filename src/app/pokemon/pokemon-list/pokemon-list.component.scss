@@ -1,0 +1,12 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+.listPokemon {
+  width: 300px;
+  height: calc(100% - 8px);
+  overflow: auto;
+
+};
+p {
+  color: white;
+}

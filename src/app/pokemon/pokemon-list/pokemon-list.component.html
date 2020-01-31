@@ -1,0 +1,15 @@
+
+
+<mat-nav-list infiniteScroll (scrolled)="onScroll()" [scrollWindow]="false" class="listPokemon"  *ngIf="reception" >
+  <mat-form-field >
+    <input matInput placeholder="pokemonName" [ngModel]="pokemonName" (ngModelChange)="searchPokemon($event)">
+  </mat-form-field>
+  <mat-list-item *ngFor=" let pokemon  of reception.data" (click)="selectPokemon(pokemon.id)">
+    <img matListAvatar src="../assets/img/sprites/{{pokemon.id}}.png" alt="...">
+    {{pokemon.name}}
+  </mat-list-item>
+</mat-nav-list>
+
+
+
+

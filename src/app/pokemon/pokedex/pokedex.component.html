@@ -1,0 +1,11 @@
+
+<mat-sidenav-container>
+  <mat-sidenav  opened mode="side" [fixedInViewport]="true">
+    <app-pokemon-list (idPokemon)="onPokemonSelectedId($event)" > </app-pokemon-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <app-pokemon-detail [idPokemonSelected]="idPokemonSelected" class="test"> </app-pokemon-detail>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+

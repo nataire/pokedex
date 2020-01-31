@@ -1,0 +1,37 @@
+<mat-card *ngIf="pokemon" class="carte">
+  <audio #song autoplay id="myAudio" src="../assets/audio/{{pokemon.id}}.mp3"></audio>
+  <h2 *ngIf="pokemon"><!-- title --> Details - {{pokemon.name |uppercase }}</h2>
+  <mat-grid-list cols="2">
+
+    <mat-grid-tile rowspan="1" rowHeight="200px">
+      <mat-list>
+        <img mat-card-lg-image src="../assets/img/official-artwork/{{pokemon.id}}.png">
+        <mat-list-item><div class="id">No. {{pokemon.id | number: '3.0' }}</div></mat-list-item>
+      </mat-list>
+    </mat-grid-tile>
+    <mat-grid-tile rowspan="1">
+      <mat-list>
+        <mat-list-item>
+          {{ pokemon.name }}&nbsp;&nbsp;
+          <mat-icon (click)="playMusic()">play_circle_outline</mat-icon>
+        </mat-list-item>
+        <mat-list-item><mat-chip-list *ngFor="let pokemons of pokemon.types"><mat-chip>{{ pokemons }}</mat-chip></mat-chip-list></mat-list-item>
+        <mat-list-item>Taille: {{ pokemon.height | number: '1.2' }} m</mat-list-item>
+        <mat-list-item>Poids: {{ pokemon.weight | number: '1.2' }} Kg</mat-list-item>
+      </mat-list>
+      <mat-card-content></mat-card-content>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="2">
+      <mat-card-content>{{pokemon.description}}</mat-card-content>
+    </mat-grid-tile>
+  </mat-grid-list>
+</mat-card>
+
+
+
+
+
+
+
+
+

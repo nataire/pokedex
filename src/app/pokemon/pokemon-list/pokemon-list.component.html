@@ -1,0 +1,20 @@
+<body>
+  <h2>Liste pokémon</h2>
+
+  <mat-card >
+    <mat-nav-list infiniteScroll  (scrolled)="onScroll()">
+      <mat-list-item *ngFor=" let pokemon  of reception.data">
+        <img matListAvatar src="../assets/img/sprites/{{pokemon.id}}.png" alt="...">
+        <p matLine>
+          <a routerLink="/pokemons/{{pokemon.id}}" > {{pokemon.id}} {{pokemon.name}}
+          </a>
+        </p>
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-card>
+
+</body>
+
+
+
+

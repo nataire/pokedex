@@ -1,0 +1,44 @@
+<h2><!-- title --> Details - {{pokemon.name |uppercase }}</h2>
+
+
+
+
+
+<mat-card>
+  <mat-grid-list cols="2"  >
+    <mat-grid-tile class="g1">
+      <mat-list dense>
+        <mat-list-item><img mat-card-md-image src="../assets/img/official-artwork/{{pokemon.id}}.png" alt="..."  ></mat-list-item>
+        <mat-list-item></mat-list-item>
+        <mat-list-item> No.  {{pokemon.id | number: '3.0'}}</mat-list-item>
+      </mat-list>
+    </mat-grid-tile>
+    <mat-grid-tile class="g2" >
+      <mat-list dense>
+        <mat-list-item> {{pokemon.name}} <button mat-button (click)="playMusic()">  <mat-icon>play_circle_outline</mat-icon> </button>
+        </mat-list-item>
+        <mat-list-item>
+          <mat-chip-list *ngFor="let type  of pokemon.types">
+            <mat-chip> {{type}}</mat-chip>
+          </mat-chip-list>
+        </mat-list-item>
+        <mat-list-item> Taille : {{pokemon.height | number: '1.2'}} </mat-list-item>
+        <mat-list-item> Poids : {{pokemon.weight | number: '1.2'}} </mat-list-item>
+      </mat-list>
+    </mat-grid-tile>
+  </mat-grid-list>
+  <div class="desc">
+    Description : {{pokemon.description}}
+  </div>
+  <mat-card-actions>
+    <button (click)="goBack()">	<mat-icon>keyboard_return</mat-icon></button>
+  </mat-card-actions>
+</mat-card>
+
+<audio autoplay id="myAudio">
+  <source src="../assets/audio/2.mp3" type="audio/mp3">
+</audio>
+
+
+
+
